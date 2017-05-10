@@ -49,10 +49,15 @@ public class SuiteTest extends TestCase {
     }
 
     public void testNoTestCaseClass() {
-        Test t = new TestSuite(NoTestCaseClass.class);
-        t.run(fResult);
-        assertEquals(1, fResult.runCount());  // warning test
-        assertTrue(!fResult.wasSuccessful());
+        try {
+            Test t = new TestSuite(NoTestCaseClass.class);
+            t.run(fResult);
+            assertEquals(1, fResult.runCount());  // warning test
+            assertTrue(!fResult.wasSuccessful());
+        }
+        catch (Exception e) {
+			Assert.fail("Fail : " + e);
+		}
     }
 
     public void testNoTestCases() {
