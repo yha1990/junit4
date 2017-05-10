@@ -56,8 +56,8 @@ public class SuiteTest extends TestCase {
             assertTrue(!fResult.wasSuccessful());
         }
         catch (Exception e) {
-			Assert.fail("Fail : " + e);
-		}
+	    Assert.fail("Fail : " + e);
+	}
     }
 
     public void testNoTestCases() {
