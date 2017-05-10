@@ -42,10 +42,15 @@ public class SuiteTest extends TestCase {
     }
 
     public void testInheritedTests() {
-        TestSuite suite = new TestSuite(InheritedTestCase.class);
-        suite.run(fResult);
-        assertTrue(fResult.wasSuccessful());
-        assertEquals(2, fResult.runCount());
+        try{
+            TestSuite suite = new TestSuite(InheritedTestCase.class);
+            suite.run(fResult);
+            assertTrue(fResult.wasSuccessful());
+            assertEquals(2, fResult.runCount());
+        }
+       catch (Exception e) {
+			Assert.fail("Fail : " + e);
+		}
     }
 
     public void testNoTestCaseClass() {
